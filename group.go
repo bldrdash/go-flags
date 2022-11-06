@@ -273,7 +273,7 @@ func (g *Group) scanStruct(realval reflect.Value, sfield *reflect.StructField, h
 			short, _ = utf8.DecodeRuneInString(shortname)
 		}
 
-		description := mtag.Get("description")
+		description := mtag.Get("desc")
 		def := mtag.GetMany("default")
 
 		optionalValue := mtag.GetMany("optional-value")
@@ -371,7 +371,7 @@ func (g *Group) scanSubGroupHandler(realval reflect.Value, sfield *reflect.Struc
 			ptrval = realval.Addr()
 		}
 
-		description := mtag.Get("description")
+		description := mtag.Get("desc")
 
 		group, err := g.AddGroup(subgroup, description, ptrval.Interface())
 

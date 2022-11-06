@@ -207,7 +207,7 @@ func (c *Command) scanSubcommandHandler(parentg *Group) scanHandler {
 
 				arg := &Arg{
 					Name:            name,
-					Description:     m.Get("description"),
+					Description:     m.Get("desc"),
 					Required:        required,
 					RequiredMaximum: requiredMaximum,
 
@@ -240,7 +240,7 @@ func (c *Command) scanSubcommandHandler(parentg *Group) scanHandler {
 				ptrval = realval.Addr()
 			}
 
-			shortDescription := mtag.Get("description")
+			shortDescription := mtag.Get("desc")
 			longDescription := mtag.Get("long-description")
 			subcommandsOptional := mtag.Get("subcommands-optional")
 			aliases := mtag.GetMany("alias")
