@@ -1,3 +1,4 @@
+//go:build !forceposix
 // +build !forceposix
 
 package flags
@@ -94,8 +95,8 @@ func (c *Command) addHelpGroup(showHelp func() error) *Group {
 	// Windows CLI applications typically use /? for help, so make both
 	// that available as well as the POSIX style h and help.
 	var help struct {
-		ShowHelpWindows func() error `short:"?" description:"Show this help message"`
-		ShowHelpPosix   func() error `short:"h" long:"help" description:"Show this help message"`
+		ShowHelpWindows func() error `short:"?" desc:"Show this help message"`
+		ShowHelpPosix   func() error `short:"h" long:"help" desc:"Show this help message"`
 	}
 
 	help.ShowHelpWindows = showHelp

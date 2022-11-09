@@ -950,7 +950,7 @@ func TestIniOverridesFromConfigFlag(t *testing.T) {
 
 func TestIniRequired(t *testing.T) {
 	var opts struct {
-		Required string               `short:"r" required:"yes" description:"required"`
+		Required string               `short:"r" required:"yes" desc:"required"`
 		Config   func(s string) error `long:"config" default:"no-ini-file" no-ini:"true"`
 	}
 

@@ -30,9 +30,9 @@ func TestTagMissingQuote(t *testing.T) {
 
 func TestTagNewline(t *testing.T) {
 	var opts = struct {
-		TestValue bool `long:"verbose" description:"verbose
+		TestValue bool `long:"verbose" desc:"verbose
 something"`
 	}{}
 
-	assertParseFail(t, ErrTag, "unexpected newline in tag value `description' (in `long:\"verbose\" description:\"verbose\nsomething\"`)", &opts, "")
+	assertParseFail(t, ErrTag, "unexpected newline in tag value `desc' (in `long:\"verbose\" desc:\"verbose\nsomething\"`)", &opts, "")
 }

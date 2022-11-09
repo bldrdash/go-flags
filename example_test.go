@@ -10,34 +10,34 @@ func Example() {
 	var opts struct {
 		// Slice of bool will append 'true' each time the option
 		// is encountered (can be set multiple times, like -vvv)
-		Verbose []bool `short:"v" long:"verbose" description:"Show verbose debug information"`
+		Verbose []bool `short:"v" long:"verbose" desc:"Show verbose debug information"`
 
 		// Example of automatic marshalling to desired type (uint)
-		Offset uint `long:"offset" description:"Offset"`
+		Offset uint `long:"offset" desc:"Offset"`
 
 		// Example of a callback, called each time the option is found.
-		Call func(string) `short:"c" description:"Call phone number"`
+		Call func(string) `short:"c" desc:"Call phone number"`
 
 		// Example of a required flag
-		Name string `short:"n" long:"name" description:"A name" required:"true"`
+		Name string `short:"n" long:"name" desc:"A name" required:"true"`
 
 		// Example of a value name
-		File string `short:"f" long:"file" description:"A file" value-name:"FILE"`
+		File string `short:"f" long:"file" desc:"A file" value-name:"FILE"`
 
 		// Example of a pointer
-		Ptr *int `short:"p" description:"A pointer to an integer"`
+		Ptr *int `short:"p" desc:"A pointer to an integer"`
 
 		// Example of a slice of strings
-		StringSlice []string `short:"s" description:"A slice of strings"`
+		StringSlice []string `short:"s" desc:"A slice of strings"`
 
 		// Example of a slice of pointers
-		PtrSlice []*string `long:"ptrslice" description:"A slice of pointers to string"`
+		PtrSlice []*string `long:"ptrslice" desc:"A slice of pointers to string"`
 
 		// Example of a map
-		IntMap map[string]int `long:"intmap" description:"A map from string to int"`
+		IntMap map[string]int `long:"intmap" desc:"A map from string to int"`
 
 		// Example of a filename (useful for completion)
-		Filename Filename `long:"filename" description:"A filename"`
+		Filename Filename `long:"filename" desc:"A filename"`
 
 		// Example of positional arguments
 		Args struct {

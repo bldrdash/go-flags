@@ -10,8 +10,8 @@ import (
 )
 
 type EditorOptions struct {
-	Input  flags.Filename `short:"i" long:"input" description:"Input file" default:"-"`
-	Output flags.Filename `short:"o" long:"output" description:"Output file" default:"-"`
+	Input  flags.Filename `short:"i" long:"input" desc:"Input file" default:"-"`
+	Output flags.Filename `short:"o" long:"output" desc:"Output file" default:"-"`
 }
 
 type Point struct {
@@ -49,19 +49,19 @@ func (p Point) MarshalFlag() (string, error) {
 
 type Options struct {
 	// Example of verbosity with level
-	Verbose []bool `short:"v" long:"verbose" description:"Verbose output"`
+	Verbose []bool `short:"v" long:"verbose" desc:"Verbose output"`
 
 	// Example of optional value
-	User string `short:"u" long:"user" description:"User name" optional:"yes" optional-value:"pancake"`
+	User string `short:"u" long:"user" desc:"User name" optional:"yes" optional-value:"pancake"`
 
 	// Example of map with multiple default values
-	Users map[string]string `long:"users" description:"User e-mail map" default:"system:system@example.org" default:"admin:admin@example.org"`
+	Users map[string]string `long:"users" desc:"User e-mail map" default:"system:system@example.org" default:"admin:admin@example.org"`
 
 	// Example of option group
 	Editor EditorOptions `group:"Editor Options"`
 
 	// Example of custom type Marshal/Unmarshal
-	Point Point `long:"point" description:"A x,y point" default:"1,2"`
+	Point Point `long:"point" desc:"A x,y point" default:"1,2"`
 }
 
 var options Options

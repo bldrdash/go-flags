@@ -57,7 +57,7 @@ func splitOption(prefix string, option string, islong bool) (string, string, *st
 // addHelpGroup adds a new group that contains default help parameters.
 func (c *Command) addHelpGroup(showHelp func() error) *Group {
 	var help struct {
-		ShowHelp func() error `short:"h" long:"help" description:"Show this help message"`
+		ShowHelp func() error `short:"h" long:"help" desc:"Show this help message"`
 	}
 
 	help.ShowHelp = showHelp

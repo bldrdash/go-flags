@@ -5,7 +5,7 @@ import (
 )
 
 type RmCommand struct {
-	Force bool `short:"f" long:"force" description:"Force removal of files"`
+	Force bool `short:"f" long:"force" desc:"Force removal of files"`
 }
 
 var rmCommand RmCommand

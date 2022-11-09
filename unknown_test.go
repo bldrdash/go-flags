@@ -6,7 +6,7 @@ import (
 
 func TestUnknownFlags(t *testing.T) {
 	var opts = struct {
-		Verbose []bool `short:"v" long:"verbose" description:"Verbose output"`
+		Verbose []bool `short:"v" long:"verbose" desc:"Verbose output"`
 	}{}
 
 	args := []string{
@@ -23,7 +23,7 @@ func TestUnknownFlags(t *testing.T) {
 
 func TestIgnoreUnknownFlags(t *testing.T) {
 	var opts = struct {
-		Verbose []bool `short:"v" long:"verbose" description:"Verbose output"`
+		Verbose []bool `short:"v" long:"verbose" desc:"Verbose output"`
 	}{}
 
 	args := []string{

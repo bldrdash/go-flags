@@ -36,41 +36,41 @@ func (t *TestComplete) Complete(match string) []Completion {
 }
 
 var completionTestOptions struct {
-	Verbose  bool `short:"v" long:"verbose" description:"Verbose messages"`
-	Debug    bool `short:"d" long:"debug" description:"Enable debug"`
-	Info     bool `short:"i" description:"Display info"`
-	Version  bool `long:"version" description:"Show version"`
-	Required bool `long:"required" required:"true" description:"This is required"`
-	Hidden   bool `long:"hidden" hidden:"true" description:"This is hidden"`
+	Verbose  bool `short:"v" long:"verbose" desc:"Verbose messages"`
+	Debug    bool `short:"d" long:"debug" desc:"Enable debug"`
+	Info     bool `short:"i" desc:"Display info"`
+	Version  bool `long:"version" desc:"Show version"`
+	Required bool `long:"required" required:"true" desc:"This is required"`
+	Hidden   bool `long:"hidden" hidden:"true" desc:"This is hidden"`
 
 	AddCommand struct {
 		Positional struct {
 			Filename Filename
 		} `positional-args:"yes"`
-	} `command:"add" description:"add an item"`
+	} `command:"add" desc:"add an item"`
 
 	AddMultiCommand struct {
 		Positional struct {
 			Filename []Filename
 		} `positional-args:"yes"`
 		Extra []Filename `short:"f"`
-	} `command:"add-multi" description:"add multiple items"`
+	} `command:"add-multi" desc:"add multiple items"`
 
 	AddMultiCommandFlag struct {
 		Files []Filename `short:"f"`
-	} `command:"add-multi-flag" description:"add multiple items via flags"`
+	} `command:"add-multi-flag" desc:"add multiple items via flags"`
 
 	RemoveCommand struct {
 		Other bool     `short:"o"`
 		File  Filename `short:"f" long:"filename"`
-	} `command:"rm" description:"remove an item"`
+	} `command:"rm" desc:"remove an item"`
 
 	RenameCommand struct {
 		Completed TestComplete `short:"c" long:"completed"`
-	} `command:"rename" description:"rename an item"`
+	} `command:"rename" desc:"rename an item"`
 
 	HiddenCommand struct {
-	} `command:"hidden" description:"hidden command" hidden:"true"`
+	} `command:"hidden" desc:"hidden command" hidden:"true"`
 }
 
 type completionTest struct {

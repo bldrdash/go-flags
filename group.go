@@ -213,6 +213,17 @@ func (g *Group) scanStruct(realval reflect.Value, sfield *reflect.StructField, h
 	for i := 0; i < stype.NumField(); i++ {
 		field := stype.Field(i)
 
+		/* Try something like this if we want to use values in struct as default values
+		v := realval.FieldByName(field.Name)
+		var fieldValueStr string
+		switch v.Kind() {
+		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+			fieldValueStr = strconv.FormatInt(v.Int(), 10)
+		case reflect.String:
+			fieldValueStr = v.String()
+		}
+		*/
+
 		// PkgName is set only for non-exported fields, which we ignore
 		if field.PkgPath != "" && !field.Anonymous {
 			continue

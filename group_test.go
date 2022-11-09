@@ -142,8 +142,8 @@ func TestGroupNestedInlineNamespace(t *testing.T) {
 
 func TestDuplicateShortFlags(t *testing.T) {
 	var opts struct {
-		Verbose   []bool   `short:"v" long:"verbose" description:"Show verbose debug information"`
-		Variables []string `short:"v" long:"variable" description:"Set a variable value."`
+		Verbose   []bool   `short:"v" long:"verbose" desc:"Show verbose debug information"`
+		Variables []string `short:"v" long:"variable" desc:"Set a variable value."`
 	}
 
 	args := []string{
@@ -166,8 +166,8 @@ func TestDuplicateShortFlags(t *testing.T) {
 
 func TestDuplicateLongFlags(t *testing.T) {
 	var opts struct {
-		Test1 []bool   `short:"a" long:"testing" description:"Test 1"`
-		Test2 []string `short:"b" long:"testing" description:"Test 2."`
+		Test1 []bool   `short:"a" long:"testing" desc:"Test 1"`
+		Test2 []string `short:"b" long:"testing" desc:"Test 2."`
 	}
 
 	args := []string{
@@ -188,7 +188,7 @@ func TestDuplicateLongFlags(t *testing.T) {
 
 func TestFindOptionByLongFlag(t *testing.T) {
 	var opts struct {
-		Testing bool `long:"testing" description:"Testing"`
+		Testing bool `long:"testing" desc:"Testing"`
 	}
 
 	p := NewParser(&opts, Default)
@@ -203,7 +203,7 @@ func TestFindOptionByLongFlag(t *testing.T) {
 
 func TestFindOptionByShortFlag(t *testing.T) {
 	var opts struct {
-		Testing bool `short:"t" description:"Testing"`
+		Testing bool `short:"t" desc:"Testing"`
 	}
 
 	p := NewParser(&opts, Default)
@@ -221,7 +221,7 @@ func TestFindOptionByShortFlag(t *testing.T) {
 func TestFindOptionByLongFlagInSubGroup(t *testing.T) {
 	var opts struct {
 		Group struct {
-			Testing bool `long:"testing" description:"Testing"`
+			Testing bool `long:"testing" desc:"Testing"`
 		} `group:"sub-group"`
 	}
 
@@ -238,7 +238,7 @@ func TestFindOptionByLongFlagInSubGroup(t *testing.T) {
 func TestFindOptionByShortFlagInSubGroup(t *testing.T) {
 	var opts struct {
 		Group struct {
-			Testing bool `short:"t" description:"Testing"`
+			Testing bool `short:"t" desc:"Testing"`
 		} `group:"sub-group"`
 	}
 

@@ -521,11 +521,11 @@ func TestCommandAlias(t *testing.T) {
 
 func TestSubCommandFindOptionByLongFlag(t *testing.T) {
 	var opts struct {
-		Testing bool `long:"testing" description:"Testing"`
+		Testing bool `long:"testing" desc:"Testing"`
 	}
 
 	var cmd struct {
-		Other bool `long:"other" description:"Other"`
+		Other bool `long:"other" desc:"Other"`
 	}
 
 	p := NewParser(&opts, Default)
@@ -550,11 +550,11 @@ func TestSubCommandFindOptionByLongFlag(t *testing.T) {
 
 func TestSubCommandFindOptionByShortFlag(t *testing.T) {
 	var opts struct {
-		Testing bool `short:"t" description:"Testing"`
+		Testing bool `short:"t" desc:"Testing"`
 	}
 
 	var cmd struct {
-		Other bool `short:"o" description:"Other"`
+		Other bool `short:"o" desc:"Other"`
 	}
 
 	p := NewParser(&opts, Default)

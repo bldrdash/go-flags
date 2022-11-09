@@ -13,70 +13,70 @@ import (
 )
 
 type helpOptions struct {
-	Verbose          []bool       `short:"v" long:"verbose" description:"Show verbose debug information" ini-name:"verbose"`
-	Call             func(string) `short:"c" description:"Call phone number" ini-name:"call"`
-	PtrSlice         []*string    `long:"ptrslice" description:"A slice of pointers to string"`
+	Verbose          []bool       `short:"v" long:"verbose" desc:"Show verbose debug information" ini-name:"verbose"`
+	Call             func(string) `short:"c" desc:"Call phone number" ini-name:"call"`
+	PtrSlice         []*string    `long:"ptrslice" desc:"A slice of pointers to string"`
 	EmptyDescription bool         `long:"empty-description"`
 
-	Default           string            `long:"default" default:"Some\nvalue" description:"Test default value"`
-	DefaultArray      []string          `long:"default-array" default:"Some value" default:"Other\tvalue" description:"Test default array value"`
-	DefaultMap        map[string]string `long:"default-map" default:"some:value" default:"another:value" description:"Testdefault map value"`
-	EnvDefault1       string            `long:"env-default1" default:"Some value" env:"ENV_DEFAULT" description:"Test env-default1 value"`
-	EnvDefault2       string            `long:"env-default2" env:"ENV_DEFAULT" description:"Test env-default2 value"`
-	OptionWithArgName string            `long:"opt-with-arg-name" value-name:"something" description:"Option with named argument"`
-	OptionWithChoices string            `long:"opt-with-choices" value-name:"choice" choice:"dog" choice:"cat" description:"Option with choices"`
-	Hidden            string            `long:"hidden" description:"Hidden option" hidden:"yes"`
+	Default           string            `long:"default" default:"Some\nvalue" desc:"Test default value"`
+	DefaultArray      []string          `long:"default-array" default:"Some value" default:"Other\tvalue" desc:"Test default array value"`
+	DefaultMap        map[string]string `long:"default-map" default:"some:value" default:"another:value" desc:"Testdefault map value"`
+	EnvDefault1       string            `long:"env-default1" default:"Some value" env:"ENV_DEFAULT" desc:"Test env-default1 value"`
+	EnvDefault2       string            `long:"env-default2" env:"ENV_DEFAULT" desc:"Test env-default2 value"`
+	OptionWithArgName string            `long:"opt-with-arg-name" value-name:"something" desc:"Option with named argument"`
+	OptionWithChoices string            `long:"opt-with-choices" value-name:"choice" choice:"dog" choice:"cat" desc:"Option with choices"`
+	Hidden            string            `long:"hidden" desc:"Hidden option" hidden:"yes"`
 
 	HiddenOptionWithVeryLongName bool `long:"this-hidden-option-has-a-ridiculously-long-name" hidden:"yes"`
 
-	OnlyIni string `ini-name:"only-ini" description:"Option only available in ini"`
+	OnlyIni string `ini-name:"only-ini" desc:"Option only available in ini"`
 
 	Other struct {
-		StringSlice []string       `short:"s" default:"some" default:"value" description:"A slice of strings"`
-		IntMap      map[string]int `long:"intmap" default:"a:1" description:"A map from string to int" ini-name:"int-map"`
+		StringSlice []string       `short:"s" default:"some" default:"value" desc:"A slice of strings"`
+		IntMap      map[string]int `long:"intmap" default:"a:1" desc:"A map from string to int" ini-name:"int-map"`
 	} `group:"Other Options"`
 
 	HiddenGroup struct {
-		InsideHiddenGroup string `long:"inside-hidden-group" description:"Inside hidden group"`
+		InsideHiddenGroup string `long:"inside-hidden-group" desc:"Inside hidden group"`
 		Padder            bool   `long:"this-option-in-a-hidden-group-has-a-ridiculously-long-name"`
 	} `group:"Hidden group" hidden:"yes"`
 
 	GroupWithOnlyHiddenOptions struct {
-		SecretFlag bool `long:"secret" description:"Hidden flag in a non-hidden group" hidden:"yes"`
+		SecretFlag bool `long:"secret" desc:"Hidden flag in a non-hidden group" hidden:"yes"`
 	} `group:"Non-hidden group with only hidden options"`
 
 	Group struct {
-		Opt                  string `long:"opt" description:"This is a subgroup option"`
-		HiddenInsideGroup    string `long:"hidden-inside-group" description:"Hidden inside group" hidden:"yes"`
-		NotHiddenInsideGroup string `long:"not-hidden-inside-group" description:"Not hidden inside group" hidden:"false"`
+		Opt                  string `long:"opt" desc:"This is a subgroup option"`
+		HiddenInsideGroup    string `long:"hidden-inside-group" desc:"Hidden inside group" hidden:"yes"`
+		NotHiddenInsideGroup string `long:"not-hidden-inside-group" desc:"Not hidden inside group" hidden:"false"`
 
 		Group struct {
-			Opt string `long:"opt" description:"This is a subsubgroup option"`
+			Opt string `long:"opt" desc:"This is a subsubgroup option"`
 		} `group:"Subsubgroup" namespace:"sap"`
 	} `group:"Subgroup" namespace:"sip"`
 
 	Bommand struct {
-		Hidden bool `long:"hidden" description:"A hidden option" hidden:"yes"`
-	} `command:"bommand" description:"A command with only hidden options"`
+		Hidden bool `long:"hidden" desc:"A hidden option" hidden:"yes"`
+	} `command:"bommand" desc:"A command with only hidden options"`
 
 	Command struct {
-		ExtraVerbose []bool `long:"extra-verbose" description:"Use for extra verbosity"`
-	} `command:"command" alias:"cm" alias:"cmd" description:"A command"`
+		ExtraVerbose []bool `long:"extra-verbose" desc:"Use for extra verbosity"`
+	} `command:"command" alias:"cm" alias:"cmd" desc:"A command"`
 
 	HiddenCommand struct {
-		ExtraVerbose []bool `long:"extra-verbose" description:"Use for extra verbosity"`
-	} `command:"hidden-command" description:"A hidden command" hidden:"yes"`
+		ExtraVerbose []bool `long:"extra-verbose" desc:"Use for extra verbosity"`
+	} `command:"hidden-command" desc:"A hidden command" hidden:"yes"`
 
 	ParentCommand struct {
-		Opt        string `long:"opt" description:"This is a parent command option"`
+		Opt        string `long:"opt" desc:"This is a parent command option"`
 		SubCommand struct {
-			Opt string `long:"opt" description:"This is a sub command option"`
-		} `command:"sub" description:"A sub command"`
-	} `command:"parent" description:"A parent command"`
+			Opt string `long:"opt" desc:"This is a sub command option"`
+		} `command:"sub" desc:"A sub command"`
+	} `command:"parent" desc:"A parent command"`
 
 	Args struct {
-		Filename     string  `positional-arg-name:"filename" description:"A filename with a long description to trigger line wrapping"`
-		Number       int     `positional-arg-name:"num" description:"A number"`
+		Filename     string  `positional-arg-name:"filename" desc:"A filename with a long description to trigger line wrapping"`
+		Number       int     `positional-arg-name:"num" desc:"A number"`
 		HiddenInHelp float32 `positional-arg-name:"hidden-in-help" required:"yes"`
 	} `positional-args:"yes"`
 }
@@ -342,7 +342,7 @@ This is a sub command option
 
 type helpCommandNoOptions struct {
 	Command struct {
-	} `command:"command" description:"A command"`
+	} `command:"command" desc:"A command"`
 }
 
 func TestHelpCommand(t *testing.T) {
@@ -419,10 +419,10 @@ func TestHiddenCommandNoBuiltinHelp(t *testing.T) {
 
 	// add a hidden command
 	var hiddenCmdOpts struct {
-		Foo        bool `short:"f" long:"very-long-foo-option" description:"Very long foo description"`
-		Bar        bool `short:"b" description:"Option bar"`
+		Foo        bool `short:"f" long:"very-long-foo-option" desc:"Very long foo description"`
+		Bar        bool `short:"b" desc:"Option bar"`
 		Positional struct {
-			PositionalFoo string `positional-arg-name:"<positional-foo>" description:"positional foo"`
+			PositionalFoo string `positional-arg-name:"<positional-foo>" desc:"positional foo"`
 		} `positional-args:"yes"`
 	}
 	cmdHidden, err := p.Command.AddCommand("hidden", "Hidden command description", "Long hidden command description", &hiddenCmdOpts)
@@ -523,9 +523,9 @@ Help Options:
 
 	for _, test := range tests {
 		var opts struct {
-			WithDefault             string `long:"with-default" default:"default-value" description:"With default"`
-			WithoutDefault          string `long:"without-default" description:"Without default"`
-			WithProgrammaticDefault string `long:"with-programmatic-default" description:"With programmatic default"`
+			WithDefault             string `long:"with-default" default:"default-value" desc:"With default"`
+			WithoutDefault          string `long:"without-default" desc:"Without default"`
+			WithProgrammaticDefault string `long:"with-programmatic-default" desc:"With programmatic default"`
 		}
 
 		opts.WithProgrammaticDefault = "default-value"
@@ -615,37 +615,37 @@ func TestHelpDefaultMask(t *testing.T) {
 	}{
 		{
 			opts: &struct {
-				Value string `short:"v" default:"123" description:"V"`
+				Value string `short:"v" default:"123" desc:"V"`
 			}{},
 			present: "V (default: 123)\n",
 		},
 		{
 			opts: &struct {
-				Value string `short:"v" default:"123" default-mask:"abc" description:"V"`
+				Value string `short:"v" default:"123" default-mask:"abc" desc:"V"`
 			}{},
 			present: "V (default: abc)\n",
 		},
 		{
 			opts: &struct {
-				Value string `short:"v" default:"123" default-mask:"-" description:"V"`
+				Value string `short:"v" default:"123" default-mask:"-" desc:"V"`
 			}{},
 			present: "V\n",
 		},
 		{
 			opts: &struct {
-				Value string `short:"v" description:"V"`
+				Value string `short:"v" desc:"V"`
 			}{Value: "123"},
 			present: "V (default: 123)\n",
 		},
 		{
 			opts: &struct {
-				Value string `short:"v" default-mask:"abc" description:"V"`
+				Value string `short:"v" default-mask:"abc" desc:"V"`
 			}{Value: "123"},
 			present: "V (default: abc)\n",
 		},
 		{
 			opts: &struct {
-				Value string `short:"v" default-mask:"-" description:"V"`
+				Value string `short:"v" default-mask:"-" desc:"V"`
 			}{Value: "123"},
 			present: "V\n",
 		},

@@ -5,7 +5,7 @@ import (
 )
 
 type AddCommand struct {
-	All bool `short:"a" long:"all" description:"Add all files"`
+	All bool `short:"a" long:"all" desc:"Add all files"`
 }
 
 var addCommand AddCommand
