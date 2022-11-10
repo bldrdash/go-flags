@@ -508,9 +508,9 @@ func (p *parseState) estimateCommand() error {
 		errtype = ErrCommandRequired
 
 		if len(cmdnames) == 1 {
-			msg = fmt.Sprintf("Please specify the %s command", cmdnames[0])
+			msg = fmt.Sprintf("\nPlease specify the %s command", cmdnames[0])
 		} else if len(cmdnames) > 1 {
-			msg = fmt.Sprintf("Please specify one command of: %s or %s",
+			msg = fmt.Sprintf("\nPlease specify one command of: %s or %s",
 				strings.Join(cmdnames[:len(cmdnames)-1], ", "),
 				cmdnames[len(cmdnames)-1])
 		}

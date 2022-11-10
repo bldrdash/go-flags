@@ -168,6 +168,7 @@ func (p *Parser) writeHelpOption(writer *bufio.Writer, option *Option, info alig
 
 	prefix := paddingBeforeOption
 
+	info.indent = false
 	if info.indent {
 		prefix += 4
 	}
@@ -405,7 +406,7 @@ func (p *Parser) WriteHelp(writer io.Writer) {
 				}
 
 				if printcmd {
-					fmt.Fprintf(wr, "\n[%s command options]\n", c.Name)
+					fmt.Fprintf(wr, "\nCommand options: %s\n", c.Name)
 					aligninfo.indent = true
 					printcmd = false
 				}
